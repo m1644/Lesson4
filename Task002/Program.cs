@@ -5,23 +5,21 @@ int num = Convert.ToInt32(Console.ReadLine());
 int count = (int)Math.Log10(num) + 1;
 Console.WriteLine($"Число состоит из {count} цифр.");
 
-// Решение через While
+// Решение через цикл for
 
-int Digits (int number)
+int Digits (int N)
 {
-    int N = number;
-    int result = 1;
-    while (N > 10)
+    int result = 0;
+    for (int number = N; number > 0; number /= 10)
     {
-      N /= 10;
-      result++;
+        result++;
     }
     return result;
 }
-void PrintDigits(int number)
+void PrintDigits(int N)
 {
-    Console.WriteLine($"Число {number} содержит {Digits(number)} цифр.");
+    Console.WriteLine($"Количество цифр в числе {N} равна {Digits(N)}.");
 }
 PrintDigits(4);
 PrintDigits(444);
-PrintDigits(4444);
+PrintDigits(444444);
